@@ -1,11 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
+import { useState } from 'react';
+import Login from './pages/Login';
+import Tab from './components/Tab';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Login/>
       <StatusBar style="auto" />
+      <Tab/>
     </View>
   );
 }
