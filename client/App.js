@@ -63,7 +63,7 @@ export default function App() {
             return (
               <View style={focused ? styles.highlighted: styles.default}> 
                 <FontAwesome name="home" size={24} />
-                <Text style={{fonSize: 12, color: "#16247d"}}>HOME</Text>
+                <Text style={{fontSize: 12, color: "#16247d"}}>Home</Text>
               </View>
             )
           }
@@ -77,7 +77,7 @@ export default function App() {
             return (
               <View style={focused ? styles.highlighted: styles.default}>
                 <FontAwesome name="tree" size={24} />
-                <Text style={{fonSize: 12, color: "#16247d"}}>ACTIVITY</Text>
+                <Text style={{fontSize: 12, color: "#16247d"}}>Activity</Text>
               </View>
             )
           }
@@ -91,7 +91,7 @@ export default function App() {
             return (
               <View style={focused ? styles.highlighted: styles.default}>
                 <FontAwesome name="user" size={24} />
-                <Text style={{fonSize: 12, color: "#16247d"}}>PROFILE</Text>
+                <Text style={{fontSize: 12, color: "#16247d"}}>Profile</Text>
               </View>
             )
           }
