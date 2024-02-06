@@ -6,7 +6,7 @@ Hack4Good 2024
 
 1. `cd client` to access the app.
 2. Run `npm install` to install all required dependencies.
-3. To start, run `npx expo start`
+3. To start, run `npm start`
 4. Press `w` to open the web version of the app and view with a `401 x 897` frame to simulate the mobile app
 5. To exit the app, <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 Run ALL git commands from /groundhogs!

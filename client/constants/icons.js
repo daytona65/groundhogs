@@ -6,10 +6,18 @@ import left from "../assets/icons/left.png";
 import heartOutline from "../assets/icons/heart-ol.png";
 import share from "../assets/icons/share.png";
 import location from "../assets/icons/location.png";
-import chevronLeft from '../assets/icons/chevron-left.png'
-import chevronRight from '../assets/icons/chevron-right.png'
+import chevronLeft from '../assets/icons/chevron-left.png';
+import chevronRight from '../assets/icons/chevron-right.png';
+import cardOutline from "../assets/icons/card-outline.png";
+import card from "../assets/icons/card.png";
+import dashboardOutline from "../assets/icons/dashboard-outline.png";
+import dashboard from "../assets/icons/dashboard.png";
+import moneyBagOutline from "../assets/icons/money-bag-outline.png";
+import moneyBag from "../assets/icons/money-bag.png";
+import setting from "../assets/icons/setting.png";
+import waves from "../assets/icons/waves.png";
 
-export default {
+export default icons = {
   heart,
   menu,
   search,
@@ -19,5 +27,13 @@ export default {
   share,
   location,
   chevronLeft,
-  chevronRight
+  chevronRight,
+  cardOutline,
+  card,
+  dashboardOutline,
+  dashboard,
+  moneyBagOutline,
+  moneyBag,
+  setting,
+  waves
 };
