@@ -7,14 +7,18 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 const barHeight = 50;
 const barWidth = 300;
 
-export default function ProgressCard ({ title = 'Joy of Harvesting', completed = 7, total = 10 }) {
+export default function ProgressCard ({ 
+    title = 'Joy of Harvesting', 
+    url = 'https://groundupinitiative.org/wp-content/uploads/2023/11/2023-11-17-13.12.38.jpg', 
+    completed = 7, 
+    total = 10 }) {
   const progress = completed / total * barWidth;
   return (
     <View style={styles.container}>
         <Card mode='elevated' style={styles.card} onPress>
             <View style={ { height: barHeight, width: progress, overflow: 'hidden', borderRadius: 10}}>
                 <ImageBackground 
-                    source={{ uri: 'https://groundupinitiative.org/wp-content/uploads/2023/11/2023-11-17-13.12.38.jpg' }} 
+                    source={{ uri: {url}}} 
                     imageStyle={styles.image}>
                 </ImageBackground>
             </View>
