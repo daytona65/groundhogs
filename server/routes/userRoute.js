@@ -66,9 +66,9 @@ router.post("/login", async (req, res) => {
         // Sign the token
         const token = jwt.sign({
             user: existingUser._id,
-        }, process.env.JWT_SECRET);
+        }, process.env.JWT_KEY);
 
-        // Send the token in a HTTP-only cookie
+        // Send the token to cookie
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
@@ -79,6 +79,15 @@ router.post("/login", async (req, res) => {
         console.error(err);
         res.status(500).send();
     }
+});
+
+router.get("/logout", (req, res) => {
+    res.cookie("token", "", {
+        httpOnly: true,
+        expires: new Date(0),
+        secure: true,
+        sameSite: "none",
+      }).send();
 });
 
 module.exports = router;
