@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -23,7 +25,14 @@ mongoose.connect(process.env.MDB_URI)
 
 
 app.use(express.json());
+app.use(cookieParser());
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    credentials: true
+}));
+
 app.use("/auth", require("./routes/userRoute"));
+app.use("/profile", require("./routes/profileRoute"));
 
 
 
