@@ -1,22 +1,22 @@
+import React from 'react'
 import { useState } from 'react';
 import { Image, KeyboardAvoidingView, StyleSheet, Text, TouchableWithoutFeedback, Keyboard, View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { COLORS } from './constants/theme';
-import Background from './assets/drawkit-transport-scene-5.png';
 import axios from 'axios';
 
-export default function Login({navigation}) {
+export default function Register({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function doLogin() {
+  async function doRegister() {
     try {
-      const loginData = {
+      const registerData = {
         email, 
         password,
       };
 
-      await axios.post("http://localhost:5000/auth/login/", loginData);
+      await axios.post("http://localhost:5000/auth/register/", registerData);
 
     } catch (err) {
       console.error(err);
@@ -29,7 +29,7 @@ export default function Login({navigation}) {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Image source={{uri: 'https://picsum.photos/200/300'}} resizeMode='repeat'/>
-          <Text style={styles.title}>Welcome, Groundhog!</Text>
+          <Text style={styles.title}>Sign Up</Text>
           <TextInput 
             style={styles.input} 
             label="Email" 
@@ -44,23 +44,14 @@ export default function Login({navigation}) {
             onChangeText={text => setPassword(text)}
             secureTextEntry={true} 
           />
-
           <View style={styles.buttonContainer}>
             <Button 
               style={styles.button} 
-              name="Login" 
+              name="Register" 
               textColor='white'
-              onPress={doLogin}
+              onPress={doRegister}
             >
-              Login
-            </Button>
-            <Button 
-              style={styles.button} 
-              name='Sign up'
-              textColor='white'
-              onPress={()=> navigation.navigate('Register')}
-            >
-              Sign Up
+              Register
             </Button>
           </View>
       </KeyboardAvoidingView>
