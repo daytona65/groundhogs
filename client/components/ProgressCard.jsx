@@ -1,5 +1,5 @@
-import { ImageBackground, StyleSheet, View } from 'react-native'
-import { Button, Card, ProgressBar, Text } from 'react-native-paper';
+import { ImageBackground, Pressable, StyleSheet, View } from 'react-native'
+import { Card, Text } from 'react-native-paper';
 import { COLORS } from '../constants/theme';
 import React from 'react'
 
@@ -14,7 +14,8 @@ export default function ProgressCard ({
     total = 10 }) {
   const progress = completed / total * barWidth;
   return (
-    <View style={styles.container}>
+    <Pressable>
+      <View style={styles.container}>
         <Card mode='elevated' style={styles.card} onPress>
             <View style={ { height: barHeight, width: progress, overflow: 'hidden', borderRadius: 10}}>
                 <ImageBackground 
@@ -25,7 +26,7 @@ export default function ProgressCard ({
             <Text  style={{position: 'absolute', marginTop: 15, marginLeft: 70, color: 'white'}}>{title}      {completed}/{total}</Text> 
         </Card>
     </View>
-    
+    </Pressable>
   )
 }
 

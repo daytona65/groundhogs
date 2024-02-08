@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Login, Home, Activity, Profile } from './screens';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './Login';
+import Tabs from './Tabs';
 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -10,42 +11,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import { COLORS } from './constants/theme';
 
-
-const Tab = createBottomTabNavigator()
-
-const screenOptions = ({ route }) => ({
-  tabBarShowLabel:false,
-  headerShown:false,
-  tabBarStyle:{
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
-    elevation: 0,
-    height: 60,
-    backgroundColor: '#afbab2',
-  },
-  tabBarIcon: ({ focused, color, size }) => {
-    let iconName;
-
-    if (route.name === 'Home') {
-      iconName = focused ? 'home' : 'home-outline';
-    } else if (route.name === 'Activity') {
-      iconName = focused ? 'extension-puzzle' : 'extension-puzzle-outline';
-    } else if (route.name === 'Profile') {
-      iconName = focused ? 'person-circle' : 'person-circle-outline';
-    }
-    
-    return ( 
-      <View style={styles.tab}>
-          <Ionicons name={iconName} size={size} color={color} /> 
-          <Text style={{fontSize: 12}}>{route.name}</Text>
-      </View>
-    );
-  },
-  tabBarActiveTintColor: COLORS.primary,
-  tabBarInactiveTintColor: 'black'
-})
+const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   container: {
@@ -62,17 +28,17 @@ const styles = StyleSheet.create({
 
 });
 
+const screenOptions = {
+  headerShown: false,
+}
+
 export default function App() {
   return (
-    <NavigationContainer style={styles.container}>
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Activity" component={Activity} />
-        <Tab.Screen name="Profile" component={Profile} />
-      </Tab.Navigator>
+    <NavigationContainer style={styles.container} independent={true}>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Tabs" component={Tabs} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-
-
