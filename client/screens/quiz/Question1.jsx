@@ -14,9 +14,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   img: {
-    width: '55%',
+    width: '100%',
     height: '55%',
-    marginBottom: 50,
+    marginBottom: 60,
   },
   text: {
     fontSize: 24,
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center', 
     alignItems: 'center', 
     borderRadius: 8, 
-    width: 270, 
-    height: 35,
+    width: 140, 
+    height: 70,
     marginBottom: 15
   },
   answerContainer: {
@@ -43,11 +43,10 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     justifyContent: 'center',
     marginHorizontal: 16,
-    marginBottom: 50
+    marginBottom: 70
   },
   bottomContainer: {
     display: 'flex',
-    paddingTop: 50,
     flex: 1
   },
   nextBubble: {
@@ -56,6 +55,10 @@ const styles = StyleSheet.create({
     borderRadius: 8, 
     width: 320, 
     height: 50,
+  },
+  bubbleRow: {
+    flexDirection: 'row',
+    gap: 15
   }
 });
 
@@ -70,33 +73,42 @@ export default function Question1({navigation}) {
             source={require('../../assets/nature/nature7.png')}
         />
         <SafeAreaView style={styles.answerContainer}>
-            <TouchableOpacity 
-                style={[{backgroundColor: button === 'button1' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
-                onPress={() => setButton('button1')}>
-                <Text style={styles.answerText}>4 tons</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-                style={[{backgroundColor: button === 'button2' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
-                onPress={() => setButton('button2')}>
-                <Text style={styles.answerText}>8 tons</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-                style={[{backgroundColor: button === 'button3' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
-                onPress={() => setButton('button3')}>
-                <Text style={styles.answerText}>16 tons</Text>
-            </TouchableOpacity>
+            <View style={styles.bubbleRow}>
+                <TouchableOpacity 
+                    style={[{backgroundColor: button === 'button1' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
+                    onPress={() => setButton('button1')}>
+                    <Text style={styles.answerText}>4 tons</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={[{backgroundColor: button === 'button2' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
+                    onPress={() => setButton('button2')}>
+                    <Text style={styles.answerText}>8 tons</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.bubbleRow}>
+                <TouchableOpacity 
+                    style={[{backgroundColor: button === 'button3' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
+                    onPress={() => setButton('button3')}>
+                    <Text style={styles.answerText}>16 tons</Text>
+                </TouchableOpacity>
+                <TouchableOpacity 
+                    style={[{backgroundColor: button === 'button4' ? QUIZ_COLORS.highlight : QUIZ_COLORS.default}, styles.answerBubble]}
+                    onPress={() => setButton('button4')}>
+                    <Text style={styles.answerText}>32 tons</Text>
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
-        <View styles={styles.bottomContainer}>
+        <SafeAreaView styles={styles.bottomContainer}>
             <TouchableOpacity 
-                style={[{backgroundColor: button === 'button1' || button === 'button2' || button === 'button3' ? '#ff6767' : '#b8b8b8'}, styles.nextBubble]}
+                style={[{backgroundColor: button === 'button1' || button === 'button2' || button === 'button3' || button === 'button4' ? '#ff6767' : '#b8b8b8'}, styles.nextBubble]}
                 onPress={() => {
-                    if (button === 'button1' || button === 'button2' || button === 'button3') {
+                    if (button === 'button1' || button === 'button2' || button === 'button3' || button === 'button4') {
                         navigation.navigate('Question2');
                     }
                 }}>
                 <Text style={styles.answerText}>Next</Text>
             </TouchableOpacity>
-        </View>
+        </SafeAreaView>
     </View>
   )
 }

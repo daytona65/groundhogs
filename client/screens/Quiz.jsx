@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Question1 from './quiz/Question1';
 import Question2 from './quiz/Question2';
+import EndQuiz from './quiz/EndQuiz';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,6 +26,7 @@ export default function Quiz() {
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen name="Question1" component={Question1} />
         <Stack.Screen name="Question2" component={Question2} />
+        <Stack.Screen name="EndQuiz" component={EndQuiz} />
       </Stack.Navigator>
     </NavigationContainer>
   )
