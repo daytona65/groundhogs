@@ -19,7 +19,7 @@ export default function Login({navigation}) {
       await axios.post("http://localhost:5000/auth/login/", loginData);
 
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
 
     navigation.navigate('Tabs');
