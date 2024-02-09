@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Activity, Profile } from './screens';
+import { Home, Activity, Quiz } from './screens';
 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -31,8 +31,8 @@ const screenOptions = ({ route }) => ({
       iconName = focused ? 'home' : 'home-outline';
     } else if (route.name === 'Activity') {
       iconName = focused ? 'extension-puzzle' : 'extension-puzzle-outline';
-    } else if (route.name === 'Profile') {
-      iconName = focused ? 'person-circle' : 'person-circle-outline';
+    } else if (route.name === 'Quiz') {
+      iconName = focused ? 'game-controller' : 'game-controller-outline';
     }
     
     return ( 
@@ -67,7 +67,7 @@ export default function Tabs() {
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Activity" component={Activity} />
-        <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Screen name="Quiz" component={Quiz} />
       </Tab.Navigator>
     </NavigationContainer>
   );

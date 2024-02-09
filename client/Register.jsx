@@ -19,7 +19,7 @@ export default function Register({navigation}) {
       await axios.post("http://localhost:5000/auth/register/", registerData);
 
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
 
     navigation.navigate('Tabs');
