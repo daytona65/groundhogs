@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Activity, Quiz } from './screens';
+import { Progress, Activity, Quiz } from './screens';
 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -27,11 +27,11 @@ const screenOptions = ({ route }) => ({
   tabBarIcon: ({ focused, color, size }) => {
     let iconName;
 
-    if (route.name === 'Home') {
+    if (route.name === 'Dashboard') {
       iconName = focused ? 'home' : 'home-outline';
-    } else if (route.name === 'Activity') {
+    } else if (route.name === 'Activities') {
       iconName = focused ? 'extension-puzzle' : 'extension-puzzle-outline';
-    } else if (route.name === 'Quiz') {
+    } else if (route.name === 'Games') {
       iconName = focused ? 'game-controller' : 'game-controller-outline';
     }
     
@@ -65,9 +65,9 @@ export default function Tabs() {
   return (
     <NavigationContainer style={styles.container} independent={true}>
       <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Activity" component={Activity} />
-        <Tab.Screen name="Quiz" component={Quiz} />
+        <Tab.Screen name="Dashboard" component={Progress} />
+        <Tab.Screen name="Activities" component={Activity} />
+        <Tab.Screen name="Games" component={Quiz} />
       </Tab.Navigator>
     </NavigationContainer>
   );

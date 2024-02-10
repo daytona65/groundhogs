@@ -3,7 +3,6 @@ import { Card, Text } from 'react-native-paper';
 import { COLORS } from '../constants/theme';
 import React from 'react'
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 const barHeight = 50;
 const barWidth = 300;
 
@@ -14,35 +13,53 @@ export default function ProgressCard ({
     total = 10 }) {
   const progress = completed / total * barWidth;
   return (
-    <Pressable>
       <View style={styles.container}>
-        <Card mode='elevated' style={styles.card} onPress>
+        <Card mode='elevated' elevation={4} style={styles.card}>
             <View style={ { height: barHeight, width: progress, overflow: 'hidden', borderRadius: 10}}>
                 <ImageBackground 
-                    source={{ uri: {url}}} 
+                    source={{ uri: url}} 
                     imageStyle={styles.image}>
                 </ImageBackground>
             </View>
-            <Text  style={{position: 'absolute', marginTop: 15, marginLeft: 70, color: 'white'}}>{title}      {completed}/{total}</Text> 
+            <View style={styles.background} />
+            <Text style={styles.text}>{title}      {completed}/{total}</Text> 
         </Card>
-    </View>
-    </Pressable>
-  )
+      </View>
+  );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        margin: 10,
+    },
+
+    background: {
+      backgroundColor: COLORS.gray, // semi-opaque black background
+      opacity: 0.5,
+      position: 'absolute', 
+      width: 180,
+      marginTop: 15, 
+      marginLeft: 60, 
+      padding: 10,
+      borderRadius: 6,
+      zIndex: 0
+    },
+
+    text: {
+      color: 'white',
+      position: 'absolute', 
+      marginTop: 15, 
+      marginLeft: 70, 
     },
 
     card: {
       width: barWidth,
       height: barHeight,
       overflow: 'hidden',
-      backgroundColor: COLORS.secondary
-
+      backgroundColor: COLORS.secondary,
+      shadowRadius: 500,
     },
 
     tab: {
@@ -53,7 +70,7 @@ const styles = StyleSheet.create({
     image: {
         width: 400,
         height: 100,
-        opacity: 0.5,
+        opacity: 0.8,
         borderRadius: 5,
         position: 'relative',
         alignItems: 'baseline',

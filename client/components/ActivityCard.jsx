@@ -5,7 +5,7 @@ import { StyleSheet, View, TouchableOpacity, ActivityIndicator, FlatList,Linking
 export default function ActivityCard() {
   return (
     <NativeBaseProvider>
-      <VStack space={4} alignItems="center">
+      <VStack space={4} alignItems="center" height={400}>
         <Box
           alignItems="center"
           borderWidth="3"
@@ -15,7 +15,7 @@ export default function ActivityCard() {
           p="4"
           borderRadius= {10}
           width="97%"
-          marginTop={16} // Set the width of the Box component to span from left to right
+          marginTop={10} // Set the width of the Box component to span from left to right
         >
           <Image
             source={{ uri:'https://groundupinitiative.org/wp-content/uploads/2023/01/1-1.jpg' }}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Image, KeyboardAvoidingView, StyleSheet, Text, TouchableWithoutFeedback, Keyboard, View } from 'react-native';
+import { Image, KeyboardAvoidingView, StyleSheet, Text, TouchableWithoutFeedback, Keyboard, View, ImageBackground } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 import { COLORS } from './constants/theme';
 import Background from './assets/drawkit-transport-scene-5.png';
@@ -28,7 +28,7 @@ export default function Login({navigation}) {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <Image source={{uri: 'https://picsum.photos/200/300'}} resizeMode='repeat'/>
+      <ImageBackground source={require('./assets/nature/nature7.png')} height={100}>
           <Text style={styles.title}>Welcome, Groundhog!</Text>
           <TextInput 
             style={styles.input} 
@@ -63,6 +63,7 @@ export default function Login({navigation}) {
               Sign Up
             </Button>
           </View>
+        </ImageBackground>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
 
@@ -74,11 +75,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 80
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 50
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 150,
+    marginLeft: 80
   },
   separator: {
     marginVertical: 30,
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     alignContent: 'center',
-    marginTop: 50,
+    marginTop: 100,
     justifyContent: 'space-around',
   },
   button: {
