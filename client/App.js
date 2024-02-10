@@ -1,29 +1,20 @@
 import { StyleSheet, Text, View, TouchableOpacity, ActivityIndicator, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Login, Home, Activity, Profile } from './screens';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './Login';
+import Tabs from './Tabs';
+import Register from './Register';
+import axios from 'axios';
 
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+import { COLORS } from './constants/theme';
 
-const Tab = createBottomTabNavigator()
-
-const screenOptions = {
-  tabBarShowLabel:false,
-  headerShown:false,
-  tabBarStyle:{
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
-    elevation: 0,
-    height: 60,
-    background: '#afbab2'
-  },
-}
+axios.defaults.withCredentials = true;
+const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   container: {
@@ -31,76 +22,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#FCFBF4',
     alignItems: 'center',
     justifyContent: 'center',
-    // width: Platform.OS == "ios" ? 50 : 60,
-    // height: Platform.OS == "ios" ? 50 : 60,
-    // top: Platform.OS == "ios" ? -10 : -20,
-    // borderRadius: Platform.OS == "ios" ? 25 : 30
   },
 
-  highlighted: {
+  tab: {
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#057320'
-  },
-
-  default: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#000'
   }
 
 });
 
+const screenOptions = {
+  headerShown: false,
+}
+
 export default function App() {
   return (
-    <NavigationContainer style={styles.container}>
-      <Tab.Navigator screenOptions={screenOptions}>
-        <Tab.Screen 
-        name="Home" 
-        component={Home} 
-        options={{
-          tabBarIcon: ({focused})=>{
-            return (
-              <View style={focused ? styles.highlighted: styles.default}> 
-                <FontAwesome name="home" size={24} />
-                <Text style={{fontSize: 12, color: "#16247d"}}>Home</Text>
-              </View>
-            )
-          }
-        }}
-        />
-        <Tab.Screen 
-        name="Activity" 
-        component={Activity} 
-        options={{
-          tabBarIcon: ({focused})=>{
-            return (
-              <View style={focused ? styles.highlighted: styles.default}>
-                <FontAwesome name="tree" size={24} />
-                <Text style={{fontSize: 12, color: "#16247d"}}>Activity</Text>
-              </View>
-            )
-          }
-        }}
-        />
-        <Tab.Screen 
-        name="Profile" 
-        component={Profile} 
-        options={{
-          tabBarIcon: ({focused})=>{
-            return (
-              <View style={focused ? styles.highlighted: styles.default}>
-                <FontAwesome name="user" size={24} />
-                <Text style={{fontSize: 12, color: "#16247d"}}>Profile</Text>
-              </View>
-            )
-          }
-        }}
-        />
-      </Tab.Navigator>
+    <NavigationContainer style={styles.container} independent={true}>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Tabs" component={Tabs} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-
-

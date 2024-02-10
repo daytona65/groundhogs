@@ -1,9 +1,9 @@
-import Home from './Home';
+import Progress from './Progress';
 import Activity from './Activity';
-import Profile from './Profile';
+import Quiz from './Quiz';
 
 export {
-    Home,
+    Progress,
     Activity,
-    Profile
+    Quiz
 }
