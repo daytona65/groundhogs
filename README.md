@@ -1,7 +1,23 @@
-# groundhogs
-Hack4Good 2024
+# Hack for Good 2024 - Team Groundhogs
+## Team Members:
+- Daniel Ling
+- Nicholas Halim
+- Kynhan Tang
+- Keefe Tan
 
-## Dev
+
+# Welcome to GroundVision! 
+
+A mobile volunteer portal application designed to track impact of GUI's activities on their volunteers and participants.
+This is done with the use of in-app usage analytics, along with an engaging user interface and features that advocate for GUI's positive message of creativity and environmental consciousness!
+
+## Tech Stack used:
+- React Native with Expo (JS)
+- Node
+- Express
+- MongoDB
+
+## Dev Notes
 - `git clone` the repository and run the following commands:
 
 1. `cd server` to access the backend.
